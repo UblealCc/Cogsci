@@ -112,16 +112,10 @@ for label in ['arousal', 'valence']:
                 table.write(0,1,"左")
                 table.write(0,2,"中")
                 table.write(0,3,"右")
-            for ved in range(8,9):
-                num_index = 1
-                for par in range(32):
-                    for sec in range(60):
-                        if (total_test_data_weight_0[ved][par][sec][0] != 0 or total_test_data_weight_0[ved][par][sec][1] != 0 or 
-                            total_test_data_weight_0[ved][par][sec][2] != 0):
-                            table.write(num_index, 0, "ved_{}_info_{}".format(ved,num_index))
-                            for col in range(3):
-                                table.write(num_index, col + 1,  total_test_data_weight_0[ved][par][sec][col])
-                            num_index += 1
+            for ved in range(40):
+                table.write(ved + 1, 0, "ved_{}".format(ved))
+                for col in range(3):
+                    table.write(ved + 1, col + 1,  test_ved_data_weight_mean_0[ved][col])
             if exp == 1: 
                 file.save('/root/lime/lime_info/{}0_exp{}.xls'.format(label,exp))
             elif exp == 2:
@@ -139,16 +133,10 @@ for label in ['arousal', 'valence']:
                 table.write(0,1,"左")
                 table.write(0,2,"中")
                 table.write(0,3,"右")
-            for ved in range(22,23):
-                num_index = 1
-                for par in range(32):
-                    for sec in range(60):
-                        if (total_test_data_weight_1[ved][par][sec][0] != 0 or total_test_data_weight_1[ved][par][sec][1] != 0 or 
-                            total_test_data_weight_1[ved][par][sec][2] != 0):
-                            table.write(num_index, 0, "ved_{}_info_{}".format(ved,num_index))
-                            for col in range(3):
-                                table.write(num_index, col + 1,  total_test_data_weight_1[ved][par][sec][col])
-                            num_index += 1
+            for ved in range(40):
+                table.write(ved + 1, 0, "ved_{}".format(ved))
+                for col in range(3):
+                    table.write(ved + 1, col + 1,  test_ved_data_weight_mean_1[ved][col])
             if exp == 1: 
                 file.save('/root/lime/lime_info/{}1_exp{}.xls'.format(label,exp))
             elif exp == 2:
